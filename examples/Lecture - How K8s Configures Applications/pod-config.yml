@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: config-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: busybox
+      command: [ "bin/sh", "-c", "env" ]
+      env:
+        - name: WHAT_SCHOOL
+        valueFrom:
+          configMapKeyRef:
+            name: my-map
+            key: school
+  restartPolicy: Never
+
+## my-map config map is created by:
+# kubectl create configmap my-map --from-literal=school=LinuxAcademy
+# kubectl get configmaps
+# kubectl describe configmaps my-map
+# kubectl get configmaps my-map -o yaml
+
