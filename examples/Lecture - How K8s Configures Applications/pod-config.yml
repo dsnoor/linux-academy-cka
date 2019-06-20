@@ -9,10 +9,10 @@ spec:
       command: [ "bin/sh", "-c", "env" ]
       env:
         - name: WHAT_SCHOOL
-        valueFrom:
-          configMapKeyRef:
-            name: my-map
-            key: school
+          valueFrom:
+            configMapKeyRef:
+              name: my-map
+              key: school
   restartPolicy: Never
 
 ## my-map config map is created by:
