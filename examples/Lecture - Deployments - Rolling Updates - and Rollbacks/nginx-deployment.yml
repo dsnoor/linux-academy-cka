@@ -20,3 +20,22 @@ spec:
 
 ## Deploy
 # kubectl create -f nginx-deployment.yml
+# kubectl get deployments
+# kubectl describe deployment nginx-deployment
+
+
+## Get the yaml back from deployed deployment
+# kubectl get deployment nginx-deployment -o yaml # get the yaml back
+
+## Update deployment
+# kubectl set image deployment/nginx-deployment nginx=nginx:1.8
+# kubectl rollout status deployment/nginx-deployment
+## or, edit the yaml file and run
+# kubectl apply -f nginx-deployment.yml
+
+## Roll back
+## get revisions
+# kubectl rollout history deployment/nginx-deployment # get a list of revision
+# kubectl rollout history deployment/nginx-deployment --revision=3
+## roll back
+# kubectl rollout undo deployment/nginx-deployment --to-revision=2
