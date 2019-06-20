@@ -21,3 +21,4 @@ spec:
 # kubectl describe configmaps my-map
 # kubectl get configmaps my-map -o yaml
 
+# kubectl logs config-test-pod

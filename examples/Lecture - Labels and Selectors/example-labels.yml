@@ -1,0 +1,18 @@
+# Example labels
+release:
+  - stable
+  - canary
+environment:
+  - dev
+  - qa
+  - production
+tier:
+  - frontend
+  - backend
+  - cache
+partition:
+  - customerA
+  - customerB
+track:
+  - daily
+  - weekly

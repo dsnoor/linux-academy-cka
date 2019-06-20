@@ -1,0 +1,7 @@
+kubectl scale deployment/nginx-deployment --replicas=3
+
+# autoscaling is not covered in the exam
+
+kubectl delete pod nginx-deployment-5cd6d46846-jj99d
+# kubenetes will bring one pod up
+# same story if we shutdown the worker node.
