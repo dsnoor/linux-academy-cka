@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-pod
+  labels:
+    name: nfs-pod
+spec:
+  containers:
+  - name: nfs-ctn
+    image: busybox
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - name: nfsvol
+      mountPath: /tmp
+  restartPolicy: Always
+  securityContext:
+    fsGroup: 65534 # this needs to be the same as nobody:nogroup id on the nfs server
+    runAsUser: 65534
+  volumes:
+    - name: nfsvol
+      persistentVolumeClaim:
+        claimName: nfs-pvc

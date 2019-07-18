@@ -69,5 +69,7 @@ echo "** Now, copy the `kubeadm join xx.xxx.xx.xx:6443 --token xxxx --discovery-
 echo "** Press any key to continue when done .."
 read input
 
+# to get the tokens again, use `sudo kubeadm token list`
+
 echo "Verify that the nodes are joined"
 ssh $SERVER_USERNAME@$KUBE_MASTER_DNS 'kubectl get nodes'
